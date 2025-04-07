@@ -30,17 +30,11 @@ Here's a simple example of how to use the CustomClient:
 using CustomClient;
 
 var client = new CustomHttpClient();
-var response = await client.GetAsync("https://api.example.com/data");
+var idIntegration = Guid.NewGuid();
 
-if (response.IsSuccessStatusCode)
-{
-    var data = await response.Content.ReadAsStringAsync();
-    Console.WriteLine(data);
-}
-else
-{
-    Console.WriteLine($"Error: {response.StatusCode}");
-}
+var response = await client.GetBalanceAsync(idIntegration);
+
+Console.WriteLine(response);
 ```
 
 ## Contributing
